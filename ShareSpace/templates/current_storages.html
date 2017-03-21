@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ShareSpace - Current Storages</title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href={% static "css/bootstrap.min.css" %}>
+    <link rel="stylesheet" href={% static "css/Special.css" %}>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">ShareSpace</a>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="about.html">About <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Current Storages</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="#">Create a Listing</a>
+          </li>
+
+          <!-- Log in and Register -->
+        </ul>
+      </div>
+    </nav>
+    <div class="container justify-content-start">
+        <div class="row">
+            <div class="col-md-12 margin-top text-center">
+                <img  class="img-responsive center-block" src={% static "Images/Logomakr_3jBaX2.png" %} />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <dl class="d-lg-table">
+                    {% for storages in Storage %}
+                        <dt>
+                            Storage Name
+                        </dt>
+                        <dd>
+                            {{ storages.storage_name }}
+                        </dd>
+                        <dt>
+                            Size
+                        </dt>
+                        <dd>
+                            {{ storages.Size }}
+                        </dd>
+                        <dt>
+                            Area Code
+                        </dt>
+                        <dd>
+                            {{ storages.area_code }}
+                        </dd>
+                        <dt>
+                            Price
+                        </dt>
+                        <dd>
+                            {{ storages.price }}
+                        </dd>
+                        <dt>
+                            Username
+                        </dt>
+                        <dd>
+                            {{ storages.user_id }}
+                        </dd>
+                    {% endfor %}
+                </dl>
+
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+</body>
+</html>
