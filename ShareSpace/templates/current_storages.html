@@ -1,9 +1,10 @@
+{% load static from staticfiles %}
+{% load render_table from django_tables2 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>ShareSpace - Current Storages</title>
-    {% load static from staticfiles %}
     <link rel="stylesheet" href={% static "css/bootstrap.min.css" %}>
     <link rel="stylesheet" href={% static "css/Special.css" %}>
 
@@ -20,11 +21,11 @@
           <li class="nav-item">
             <a class="nav-link" href="/">Home</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="about.html">About <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Current Storages</a>
+          <li class="nav-item active">
+            <a class="nav-link" href="current_storages.html">Current Storages</a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="#">Create a Listing</a>
@@ -42,44 +43,9 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <dl class="d-lg-table">
-                    {% for storages in Storage %}
-                        <dt>
-                            Storage Name
-                        </dt>
-                        <dd>
-                            {{ storages.storage_name }}
-                        </dd>
-                        <dt>
-                            Size
-                        </dt>
-                        <dd>
-                            {{ storages.Size }}
-                        </dd>
-                        <dt>
-                            Area Code
-                        </dt>
-                        <dd>
-                            {{ storages.area_code }}
-                        </dd>
-                        <dt>
-                            Price
-                        </dt>
-                        <dd>
-                            {{ storages.price }}
-                        </dd>
-                        <dt>
-                            Username
-                        </dt>
-                        <dd>
-                            {{ storages.user_id }}
-                        </dd>
-                    {% endfor %}
-                </dl>
-
+                {% render_table table %}
             </div>
         </div>
-
         <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>

@@ -62,3 +62,17 @@
     margin-top: 10px;
     min-width: 190px;
 }
+
+.table th {
+    text-align: center;
+    margin: 100px;
+    padding: 20px;
+}
+
+.table table {
+    margin-left: 150px;
+}
+
+.table td {
+    text-align: center;
+}
