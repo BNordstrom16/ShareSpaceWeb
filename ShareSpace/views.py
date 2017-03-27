@@ -16,3 +16,8 @@ def current_storages(request):
     table = StorageTable(Storage.objects.all())
     RequestConfig(request).configure(table)
     return render(request, '../templates/current_storages.html', {'table': table})
+
+
+def create_storage(request):
+    return render(request, '../templates/create_storage.html', {})
+
