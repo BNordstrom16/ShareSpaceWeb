@@ -1,169 +1,105 @@
-{% load static from staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="Brad Nordstrom" content="">
+{% extends 'base.html' %}
 
-    <title>ShareSpace - Home</title>
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href={% static "css/bootstrap.min.css" %}>
-      <link rel="stylesheet" href={% static "css/Special.css" %}>
-
-  </head>
-
-  <body>
-
-    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="#">ShareSpace</a>
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="current_storages">Current Storages</a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="#">Create a Listing</a>
-          </li>
-
-          <!-- Log in and Register -->
-        </ul>
-      </div>
-    </nav>
-    <div class="container justify-content-start">
-        <div class="row">
-            <div class="col-md-12 margin-top text-center">
-                <img  class="img-responsive center-block" src={% static "Images/Logomakr_3jBaX2.png" %} />
-            </div>
+{% block content %}
+<div class="col-md-4">
+    <h3 class="text-center"><b>Search</b></h3>
+    <div class="dropdown text-center">
+        <button class="btn btn-secondary dropdown-toggle text-center dropdown-margin dropdown-width" type="button" id="Size" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Size
+        </button>
+        <div class="dropdown-menu" aria-labelledby="Options">
+            <button class="dropdown-item" type="button">Small</button>
+            <button class="dropdown-item" type="button">Medium</button>
+            <button class="dropdown-item" type="button">Large</button>
         </div>
-      <div class="row">
-        <div class="col-md-4">
-            <h3 class="text-center"><b>Search</b></h3>
-            <div class="dropdown text-center">
-                <button class="btn btn-secondary dropdown-toggle text-center dropdown-margin dropdown-width" type="button" id="Size" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Size
-                </button>
-                <div class="dropdown-menu" aria-labelledby="Options">
-                    <button class="dropdown-item" type="button">Small</button>
-                    <button class="dropdown-item" type="button">Medium</button>
-                    <button class="dropdown-item" type="button">Large</button>
-                </div>
-            </div>
-            <div class="dropdown text-center">
-                <button class="btn btn-secondary dropdown-toggle text-center dropdown-margin dropdown-width" type="button" id="Climate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Climate
-                </button>
-                <div class="dropdown-menu" aria-labelledby="Options">
-                    <button class="dropdown-item" type="button">Cold</button>
-                    <button class="dropdown-item" type="button">Warm</button>
-                    <button class="dropdown-item" type="button">Hot</button>
-                </div>
-            </div>
-            <h4 class="text-center word-margin">When</h4>
-            <div class="dropdown text-center">
-                <button class="btn btn-secondary dropdown-toggle text-center dropdown-margin dropdown-width" type="button" id="monthFrom" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    From
-                    <span class="caret"></span>
-                </button>
-                <div class="dropdown-menu" aria-labelledby="from what month">
-                    <button class="dropdown-item">January</button>
-                    <button class="dropdown-item">February</button>
-                    <button class="dropdown-item">March</button>
-                    <button class="dropdown-item">April</button>
-                    <button class="dropdown-item">May</button>
-                    <button class="dropdown-item">June</button>
-                    <button class="dropdown-item">July</button>
-                    <button class="dropdown-item">August</button>
-                    <button class="dropdown-item">September</button>
-                    <button class="dropdown-item">October</button>
-                    <button class="dropdown-item">November</button>
-                    <button class="dropdown-item">December</button>
-                </div>
-            </div>
-            <div class="dropdown text-center">
-                <button class="btn btn-secondary dropdown-toggle text-center dropdown-margin dropdown-width" type="button" id="monthTo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    To
-                    <span class="caret"></span>
-                </button>
-                <div class="dropdown-menu" aria-labelledby="from what month">
-                    <button class="dropdown-item">January</button>
-                    <button class="dropdown-item">February</button>
-                    <button class="dropdown-item">March</button>
-                    <button class="dropdown-item">April</button>
-                    <button class="dropdown-item">May</button>
-                    <button class="dropdown-item">June</button>
-                    <button class="dropdown-item">July</button>
-                    <button class="dropdown-item">August</button>
-                    <button class="dropdown-item">September</button>
-                    <button class="dropdown-item">October</button>
-                    <button class="dropdown-item">November</button>
-                    <button class="dropdown-item">December</button>
-                </div>
-            </div>
-            <div>
-                <h4 class="text-center word-margin">Price Per Month ($)</h4>
-                <!--Add slider in future-->
-                <input type="text" class="form-control text-center fc1 dropdown-margin" placeholder="0" aria-describedby="Price Per Month" />
-            </div>
-            <div>
-                <h4 class="text-center word-margin">Where</h4>
-                <input type="text" class="form-control text-center fc1" placeholder="Your Zipcode" aria-describedby="Price Per Month" />
-                <input type="text" class="form-control text-center fc1" placeholder="Distance From Owner" aria-describedby="Price Per Month" />
-            </div>
-            <div>
-                <button type="submit" class="btn btn-primary margin-top item-margin button-margin">Submit</button>
-            </div>
-        </div>
-          <div class="col-md-4 margin-top-50">
-              <p><b>Need a place to store some extra items for a short amount of time but do not want to pay the outrageous prices of storage
-                  facilities?</b></p>
-              <p><b>Are you someone that has extra space in your garage and wants to make some extra money?</b></p>
-              <p>ShareSpace provides an opportunity for people in need of storage space and rewards those with space.</p>
-          </div>
-          <div class="col-md-4">
-              <h4 class="text-center"><b>Want to share? Sign up now!</b></h4>
-              <div class="input-group">
-                  <input type="text" class="form-control fc2 form-width" placeholder="Email" aria-describedby="basic-addon1">
-              </div>
-              <div class="input-group">
-                  <input type="text" class="form-control fc2 form-width" placeholder="Username" aria-describedby="basic-addon1">
-              </div>
-              <div class="input-group">
-                  <input type="password" class="form-control fc2 form-width" placeholder="Password" aria-describedby="basic-addon1">
-              </div>
-              <div>
-                  <button type="submit" class="btn btn-primary sub">Signup</button>
-              </div>
-              <div>
-                  <button type="submit" class="btn btn-primary sub2">Login</button>
-              </div>
-          </div>
-      </div>
-      <hr>
-
-      <footer class="margin-top-10 margin-left-100">
-        <p>&copy; ShareSpace 2017</p>
-      </footer>
     </div>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  </body>
-</html>
+    <div class="dropdown text-center">
+        <button class="btn btn-secondary dropdown-toggle text-center dropdown-margin dropdown-width" type="button" id="Climate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Climate
+        </button>
+        <div class="dropdown-menu" aria-labelledby="Options">
+            <button class="dropdown-item" type="button">Cold</button>
+            <button class="dropdown-item" type="button">Warm</button>
+            <button class="dropdown-item" type="button">Hot</button>
+        </div>
+    </div>
+    <h4 class="text-center word-margin">When</h4>
+    <div class="dropdown text-center">
+        <button class="btn btn-secondary dropdown-toggle text-center dropdown-margin dropdown-width" type="button" id="monthFrom" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            From
+            <span class="caret"></span>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="from what month">
+            <button class="dropdown-item">January</button>
+            <button class="dropdown-item">February</button>
+            <button class="dropdown-item">March</button>
+            <button class="dropdown-item">April</button>
+            <button class="dropdown-item">May</button>
+            <button class="dropdown-item">June</button>
+            <button class="dropdown-item">July</button>
+            <button class="dropdown-item">August</button>
+            <button class="dropdown-item">September</button>
+            <button class="dropdown-item">October</button>
+            <button class="dropdown-item">November</button>
+            <button class="dropdown-item">December</button>
+        </div>
+    </div>
+    <div class="dropdown text-center">
+        <button class="btn btn-secondary dropdown-toggle text-center dropdown-margin dropdown-width" type="button" id="monthTo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            To
+            <span class="caret"></span>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="from what month">
+            <button class="dropdown-item">January</button>
+            <button class="dropdown-item">February</button>
+            <button class="dropdown-item">March</button>
+            <button class="dropdown-item">April</button>
+            <button class="dropdown-item">May</button>
+            <button class="dropdown-item">June</button>
+            <button class="dropdown-item">July</button>
+            <button class="dropdown-item">August</button>
+            <button class="dropdown-item">September</button>
+            <button class="dropdown-item">October</button>
+            <button class="dropdown-item">November</button>
+            <button class="dropdown-item">December</button>
+        </div>
+    </div>
+    <div>
+        <h4 class="text-center word-margin">Price Per Month ($)</h4>
+        <!--Add slider in future-->
+        <input type="text" class="form-control text-center fc1 dropdown-margin" placeholder="0" aria-describedby="Price Per Month" />
+    </div>
+    <div>
+        <h4 class="text-center word-margin">Where</h4>
+        <input type="text" class="form-control text-center fc1" placeholder="Your Zipcode" aria-describedby="Price Per Month" />
+        <input type="text" class="form-control text-center fc1" placeholder="Distance From Owner" aria-describedby="Price Per Month" />
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary margin-top item-margin button-margin">Submit</button>
+    </div>
+</div>
+  <div class="col-md-4 margin-top-50">
+      <p><b>Need a place to store some extra items for a short amount of time but do not want to pay the outrageous prices of storage
+          facilities?</b></p>
+      <p><b>Are you someone that has extra space in your garage and wants to make some extra money?</b></p>
+      <p>ShareSpace provides an opportunity for people in need of storage space and rewards those with space.</p>
+  </div>
+  <div class="col-md-4">
+      <h4 class="text-center"><b>Want to share? Sign up now!</b></h4>
+      <div class="input-group">
+          <input type="text" class="form-control fc2 form-width" placeholder="Email" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group">
+          <input type="text" class="form-control fc2 form-width" placeholder="Username" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group">
+          <input type="password" class="form-control fc2 form-width" placeholder="Password" aria-describedby="basic-addon1">
+      </div>
+      <div>
+          <button type="submit" class="btn btn-primary sub">Signup</button>
+      </div>
+      <div>
+          <button type="submit" class="btn btn-primary sub2">Login</button>
+      </div>
+  </div>
+{% endblock %}

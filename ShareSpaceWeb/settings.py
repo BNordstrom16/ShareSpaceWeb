@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'registration',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -40,6 +41,8 @@ INSTALLED_APPS = [
     'django_tables2',
     'ShareSpace',
 ]
+
+REGISTRATION_AUTO_LOGIN = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
