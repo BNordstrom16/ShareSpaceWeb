@@ -21,3 +21,8 @@ def current_storages(request):
 def create_storage(request):
     return render(request, '../templates/create_storage.html', {})
 
+
+
+
+
+
