@@ -76,3 +76,8 @@
 .table td {
     text-align: center;
 }
+
+.welcome {
+    margin-top: 8px;
+    color: #ffffff;
+}

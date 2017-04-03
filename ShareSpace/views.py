@@ -5,7 +5,8 @@ from .tables import StorageTable
 
 
 def index(request):
-    return render(request, '../templates/index.html', {})
+    current_user = request.user.username
+    return render(request, '../templates/index.html', {'name': current_user})
 
 
 def about(request):
