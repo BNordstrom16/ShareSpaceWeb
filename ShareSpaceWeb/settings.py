@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/'
 ROOT_URLCONF = 'ShareSpaceWeb.urls'
 
