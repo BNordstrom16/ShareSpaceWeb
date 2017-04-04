@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Storage(models.Model):
@@ -13,7 +14,7 @@ class Storage(models.Model):
     size = models.CharField(max_length=1, choices=STORAGE_SIZES)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     area_code = models.IntegerField()
-    user_id = models.ForeignKey('auth.User')
+    user_id = models.ForeignKey(User)
 
     def __str__(self):
         return self.storage_name

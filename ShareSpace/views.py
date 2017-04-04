@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Storage
 from django_tables2 import RequestConfig
 from .tables import StorageTable
 from django.contrib.auth.decorators import login_required
+from .forms import StorageForm
 
 
 def index(request):
@@ -21,7 +22,17 @@ def current_storages(request):
 
 @login_required(login_url='/accounts/login')
 def create_storage(request):
-    return render(request, '../templates/create_storage.html', {})
+    if request.method == "POST":
+        form = StorageForm(request.POST)
+        if form.is_valid():
+            model_instance = form.save(commit=False)
+            model_instance.user_id = request.user
+            model_instance.save()
+            return redirect('/current_storages')
+    else:
+        form = StorageForm()
+
+    return render(request, '../templates/create_storage.html', {'form': form})
 
 
 
