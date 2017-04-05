@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'', include('ShareSpace.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^messages/', (include('django_messages.urls')))
 
 ]
 

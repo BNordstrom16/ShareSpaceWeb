@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="col-md-12 text-center">
+        <p><b>Storage Id</b></p>
+        <p>{{ storage.storage_id }}</p>
+        <p><b>Storage Details</b></p>
+        <p>{{ storage.storage_name }}</p>
+        <p><b>Storage Size</b></p>
+        <p>{{ storage.size }}</p>
+        <p><b>Price Per Month</b></p>
+        <p>{{ storage.price }}</p>
+        <p><b>Area Code</b></p>
+        <p>{{ storage.area_code }}</p>
+    </div>
+{% endblock %}

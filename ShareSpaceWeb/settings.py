@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'registration',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django_messages',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -42,6 +44,7 @@ INSTALLED_APPS = [
     'django_tables2',
 ]
 
+SITE_ID = 1
 REGISTRATION_AUTO_LOGIN = True
 
 MIDDLEWARE = [

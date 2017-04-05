@@ -35,6 +35,11 @@ def create_storage(request):
     return render(request, '../templates/create_storage.html', {'form': form})
 
 
+def storage(request, storage_id):
+    storage_request = Storage.objects.get(pk=storage_id)
+    return render(request, '../templates/storage.html', {'storage': storage_request})
+
+
 
 
 
