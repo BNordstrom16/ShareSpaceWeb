@@ -17,7 +17,7 @@ def about(request):
 def current_storages(request):
     table = StorageTable(Storage.objects.all())
     RequestConfig(request).configure(table)
-    return render(request, '../templates/current_storages.html', {'table': table},)
+    return render(request, '../templates/current_storages.html', {'table': table})
 
 
 @login_required(login_url='/accounts/login')
@@ -37,7 +37,7 @@ def create_storage(request):
 
 def storage(request, storage_id):
     storage_request = Storage.objects.get(pk=storage_id)
-    return render(request, '../templates/storage.html', {'storage': storage_request})
+    return render(request, '../templates/storage.html', {'table': storage_request})
 
 
 

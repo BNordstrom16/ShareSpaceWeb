@@ -1,16 +1,45 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
     <div class="col-md-12 text-center">
-        <p><b>Storage Id</b></p>
-        <p>{{ storage.storage_id }}</p>
-        <p><b>Storage Details</b></p>
-        <p>{{ storage.storage_name }}</p>
-        <p><b>Storage Size</b></p>
-        <p>{{ storage.size }}</p>
-        <p><b>Price Per Month</b></p>
-        <p>{{ storage.price }}</p>
-        <p><b>Area Code</b></p>
-        <p>{{ storage.area_code }}</p>
+        <table class="table">
+        <thead>
+            <tr>
+                <th>{% trans "Storage Name" %}</th><th>{% trans "Size" %}</th><th>{% trans "Price Per Month ($)" %}</th>
+                <th>{% trans "Area Code" %}</th><th>{% trans "Date From" %}</th><th>{% trans "Date To" %}</th>
+                <th>{% trans "Photos" %}</th><th>{% trans "Owner" %}</th><th>{% trans "Message Owner" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                {{ storage.storage_name }}
+            </td>
+            <td>
+                {{ storage.size }}
+            </td>
+            <td>
+                {{ storage.price }}
+            </td>
+            <td>
+                {{ storage.area_code }}
+            </td>
+            <td>
+                {{ storage.date_from }}
+            </td>
+            <td>
+                {{ storage.date_to }}
+            </td>
+            <td>
+                {{ storage.photos }}
+            </td>
+            <td>
+                {{ storage.user_id }}
+            </td>
+            <td><a class='btn-link' href="{% url 'messages_compose_to' storage.user_id %}">Message</a></td>
+        </tr>
+        </tbody>
+    </table>
     </div>
 {% endblock %}
