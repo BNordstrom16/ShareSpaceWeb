@@ -23,7 +23,7 @@ def current_storages(request):
 @login_required(login_url='/accounts/login')
 def create_storage(request):
     if request.method == "POST":
-        form = StorageForm(request.POST)
+        form = StorageForm(request.POST, request.FILES)
         if form.is_valid():
             model_instance = form.save(commit=False)
             model_instance.user_id = request.user
@@ -38,6 +38,11 @@ def create_storage(request):
 def storage(request, storage_id):
     storage_request = Storage.objects.get(pk=storage_id)
     return render(request, '../templates/storage.html', {'storage': storage_request})
+
+
+def show_image(request, storage_id):
+    photo_request = Storage.objects.get(pk=storage_id)
+    return render(request, '../templates/show_image.html', {'storage': photo_request})
 
 
 

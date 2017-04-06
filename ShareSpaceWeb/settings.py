@@ -41,12 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sorl.thumbnail',
     'django_tables2',
 ]
 
 SITE_ID = 1
 REGISTRATION_AUTO_LOGIN = True
-MEDIA_URL = os.path.join(BASE_DIR, 'uploads/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads/')
+MEDIA_URL = '/uploads/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

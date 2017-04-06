@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load thumbnail %}
 
 {% block content %}
     <div class="col-md-12 text-center">
@@ -31,9 +32,17 @@
             <td>
                 {{ storage.date_to }}
             </td>
+            {% if storage.photos %}
             <td>
-                {{ storage.photos }}
+                <a href={% url 'show_image' storage.storage_id %}>
+                    {% thumbnail storage.photos "100x100" crop="center" as im %}
+                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                    {% endthumbnail %}
+                </a>
             </td>
+            {% else %}
+            <td>No photos</td>
+            {% endif %}
             <td>
                 {{ storage.user_id }}
             </td>
