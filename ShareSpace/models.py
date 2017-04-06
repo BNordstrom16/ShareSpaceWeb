@@ -18,7 +18,7 @@ class Storage(models.Model):
     size = models.CharField(max_length=1, choices=STORAGE_SIZES)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     area_code = models.IntegerField()
-    photos = models.ImageField(upload_to=user_directory)
+    photos = models.ImageField(upload_to=user_directory, blank=True)
     date_from = models.DateField()
     date_to = models.DateField()
     user_id = models.ForeignKey(User)
