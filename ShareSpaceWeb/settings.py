@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 REGISTRATION_AUTO_LOGIN = True
+MEDIA_URL = os.path.join(BASE_DIR, 'uploads/')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
