@@ -37,7 +37,7 @@ def create_storage(request):
 
 def storage(request, storage_id):
     storage_request = Storage.objects.get(pk=storage_id)
-    return render(request, '../templates/storage.html', {'table': storage_request})
+    return render(request, '../templates/storage.html', {'storage': storage_request})
 
 
 
