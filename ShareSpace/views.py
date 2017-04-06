@@ -17,7 +17,7 @@ def about(request):
 def current_storages(request):
     table = StorageTable(Storage.objects.all())
     RequestConfig(request).configure(table)
-    return render(request, '../templates/current_storages.html', {'table': table})
+    return render(request, '../templates/current_storages.html', {'table': table},)
 
 
 @login_required(login_url='/accounts/login')
