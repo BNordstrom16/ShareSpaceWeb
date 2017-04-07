@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %} ShareSpace - Register {% endblock %}
+{% block title %} StorageShare - Register {% endblock %}
 
 {% block content %}
 <div class="col-md-12">
@@ -9,7 +9,7 @@
                 {% csrf_token %}
                 {{ form.as_p }}
 
-                <input type="submit" value="Submit" />
+                <input class="btn btn-primary" type="submit" value="Submit" />
         </form>
 </div>
 {% endblock %}
