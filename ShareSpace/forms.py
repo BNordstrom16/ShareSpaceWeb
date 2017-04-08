@@ -16,3 +16,10 @@ class StorageForm(forms.ModelForm):
         exclude = ['user_id']
 
 
+class QuestionForm(forms.Form):
+    name = forms.CharField(max_length=30, required=True)
+    email = forms.EmailField(required=True)
+    comment = forms.CharField(widget=forms.Textarea, required=True)
+
+
+

@@ -4,7 +4,7 @@ from .models import Storage
 from django_tables2 import RequestConfig
 from .tables import StorageTable
 from django.contrib.auth.decorators import login_required
-from .forms import StorageForm
+from .forms import StorageForm, QuestionForm
 
 
 def index(request):
@@ -13,14 +13,22 @@ def index(request):
 
 
 def about(request):
-    return render(request, '../templates/about.html', {})
+    if request.method == "POST":
+        form = QuestionForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.save()
+            return '/about'
+    else:
+        form = QuestionForm()
+
+    return render(request, '../templates/about.html', {'form': form})
 
 
 def current_storages(request):
     table = StorageTable(Storage.objects.all())
     RequestConfig(request).configure(table)
     return render(request, '../templates/current_storages.html', {'table': table})
-
 
 @login_required(login_url='/accounts/login')
 def create_storage(request):

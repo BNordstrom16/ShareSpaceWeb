@@ -1,8 +1,17 @@
 {% extends 'base.html' %}
 {% block title %} StorageShare - About {% endblock %}
 {% block content %}
+<div class="col-md-6">
     <p>ShareSpace is a new system that will allow you to rent storage space
                     from houses.
     </p>
-    <p>Use this area to provide additional information.</p>
+    <p>Use this area to provide additional information that can help us improve</p>
+</div>
+<div class="col-md-6">
+    <form class="form-control form-control-label" action="." method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <input class='btn btn-primary' type="submit" value="Submit" />
+    </form>
+</div>
 {% endblock %}
