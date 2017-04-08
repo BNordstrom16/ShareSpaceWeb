@@ -31,14 +31,24 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'ShareSpace',
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django_messages',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ShareSpace',
+    'sorl.thumbnail',
+    'django_tables2',
 ]
+
+SITE_ID = 1
+REGISTRATION_AUTO_LOGIN = True
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads/')
+MEDIA_URL = '/uploads/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,12 +60,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+LOGIN_URL = '/accounts/login'
+LOGIN_REDIRECT_URL = '/'
 ROOT_URLCONF = 'ShareSpaceWeb.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, '../ShareSpaceWeb/ShareSpace/templates/'), os.path.join(BASE_DIR, '..')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -120,4 +132,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'ShareSpaceWeb/static')
+STATIC_ROOT = ''
+STATICFILES_DIRS = (os.path.join('static'), )

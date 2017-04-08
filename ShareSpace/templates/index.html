@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %} StorageShare - Home {% endblock %}
+
+{% block content %}
+<div class="col-md-4">
+    <h4 class="text-center">Newest Storages</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{% trans "Storage Name" %}</th><th>{% trans "Price Per Month" %}</th><th>{% trans "Area Code" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for storage in storages %}
+        <tr>
+            <td>
+                {{ storage.storage_name }}
+            </td>
+            <td>
+                {{ storage.price }}
+            </td>
+            <td>
+                {{ storage.area_code }}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+  <div class="col-md-4 margin-top-50">
+      <p><b>Need a place to store some extra items for a short amount of time but do not want to pay the outrageous prices of storage
+          facilities?</b></p>
+      <p><b>Are you someone that has extra space in your garage and wants to make some extra money?</b></p>
+      <p>ShareSpace provides an opportunity for people in need of storage space and rewards those with space.</p>
+  </div>
+  <div class="col-md-4">
+      <h4 class="text-center"><b>Want to share? Sign up now!</b></h4>
+      <div class="input-group">
+          <input type="text" class="form-control fc2 form-width" placeholder="Email" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group">
+          <input type="text" class="form-control fc2 form-width" placeholder="Username" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group">
+          <input type="password" class="form-control fc2 form-width" placeholder="Password" aria-describedby="basic-addon1">
+      </div>
+      <div>
+          <button type="submit" class="btn btn-primary sub">Signup</button>
+      </div>
+      <div>
+          <button type="submit" class="btn btn-primary sub2">Login</button>
+      </div>
+  </div>
+{% endblock %}

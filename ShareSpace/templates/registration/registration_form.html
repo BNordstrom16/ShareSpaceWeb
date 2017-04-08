@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %} StorageShare - Register {% endblock %}
+
+{% block content %}
+<div class="col-md-12">
+    <h1>Registration</h1>
+        <form method="post" action=".">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <input class="btn btn-primary" type="submit" value="Submit" />
+        </form>
+</div>
+{% endblock %}

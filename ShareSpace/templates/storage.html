@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load thumbnail %}
+
+{% block title %}StorageShare - Storage{% endblock %}
+
+{% block content %}
+    <div class="col-md-12 text-center">
+        <table class="table">
+        <thead>
+            <tr>
+                <th>{% trans "Storage Name" %}</th><th>{% trans "Size" %}</th><th>{% trans "Price Per Month ($)" %}</th>
+                <th>{% trans "Area Code" %}</th><th>{% trans "Date From" %}</th><th>{% trans "Date To" %}</th>
+                <th>{% trans "Photos" %}</th><th>{% trans "Owner" %}</th>
+                {% if storage.user_id == request.user %}
+                    <th>{% trans "Edit" %}</th>
+                    <th>{% trans "Delete" %}</th>
+                {% else %}
+                    <th>{% trans "Message Owner" %}</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                {{ storage.storage_name }}
+            </td>
+            <td>
+                {{ storage.size }}
+            </td>
+            <td>
+                {{ storage.price }}
+            </td>
+            <td>
+                {{ storage.area_code }}
+            </td>
+            <td>
+                {{ storage.date_from }}
+            </td>
+            <td>
+                {{ storage.date_to }}
+            </td>
+            {% if storage.photos %}
+            <td>
+                <a href={% url 'show_image' storage.storage_id %}>
+                    {% thumbnail storage.photos "100x100" crop="center" as im %}
+                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                    {% endthumbnail %}
+                </a>
+            </td>
+            {% else %}
+            <td>No photos</td>
+            {% endif %}
+            <td>
+                {{ storage.user_id }}
+            </td>
+            {% if storage.user_id == request.user %}
+                <td><a class="btn-link" href="{% url 'storage_edit' storage.storage_id %}">Edit</a></td>
+                <td><a class="btn-link" href="{% url 'storage_delete' storage.storage_id %}">Delete</a></td>
+            {% else %}
+                <td><a class='btn-link' href="{% url 'messages_compose_to' storage.user_id %}">Message</a></td>
+            {% endif %}
+        </tr>
+        </tbody>
+    </table>
+    </div>
+{% endblock %}
