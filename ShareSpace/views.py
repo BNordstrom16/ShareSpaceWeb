@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.views.generic import UpdateView, DeleteView
 from .models import Storage
 from django_tables2 import RequestConfig
 from .tables import StorageTable
@@ -7,7 +8,8 @@ from .forms import StorageForm
 
 
 def index(request):
-    return render(request, '../templates/index.html', {})
+    table = Storage.objects.reverse()[0:3]
+    return render(request, '../templates/index.html', {'storages': table})
 
 
 def about(request):
@@ -38,6 +40,19 @@ def create_storage(request):
 def storage(request, storage_id):
     storage_request = Storage.objects.get(pk=storage_id)
     return render(request, '../templates/storage.html', {'storage': storage_request})
+
+
+class EditStorage(UpdateView):
+    model = Storage
+    form_class = StorageForm
+    template_name = 'storage_update_form.html'
+    success_url = '/current_storages'
+
+
+class DeleteStorage(DeleteView):
+    model = Storage
+    template_name = 'storage_confirm_delete.html'
+    success_url = '/current_storages'
 
 
 def show_image(request, storage_id):
