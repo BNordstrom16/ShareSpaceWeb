@@ -25,7 +25,7 @@ SECRET_KEY = '36&l_!ilukc6l@3g)20v)4jzv$0_x0a(%up0%(4=6fa^zmos_l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['0.0.0.0', u'polar-citadel-94679.herokuapp.com']
 
 
 # Application definition
