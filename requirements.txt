@@ -7,7 +7,7 @@ colorama==0.3.7
 defusedxml==0.5.0
 Django==1.11
 django-crispy-forms==1.6.1
-django-messages==0.6.1
+django-messages==0.6.2
 django-registration-redux==1.4
 django-tables2==1.4.2
 docker-py==1.7.2
