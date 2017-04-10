@@ -26,9 +26,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['0.0.0.0', u'polar-citadel-94679.herokuapp.com']
+ALLOWED_HOSTS = [u'www.storageshare.org', u'storageshare.org', u'polar-citadel-94679.herokuapp.com']
 
 
 # Application definition
