@@ -68,6 +68,10 @@ def show_image(request, storage_id):
     return render(request, '../templates/show_image.html', {'storage': photo_request})
 
 
+def logout(request):
+    return render(request, '../templates/registration/logout.html', {})
+
+
 
 
 
