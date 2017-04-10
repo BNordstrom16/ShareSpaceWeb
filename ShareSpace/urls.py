@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^storage/(?P<storage_id>\d+)/', views.storage, name='storage'),
     url(r'^storage/edit/(?P<pk>[0-9]+)/', EditStorage.as_view(), name='storage_edit'),
     url(r'^storage/delete/(?P<pk>[0-9]+)/', DeleteStorage.as_view(), name='storage_delete'),
-    url(r'^register/logout/$', views.logout, name='logout')
+    url(r'^accounts/logout/$', views.logout, name='logout')
 
 ]
 
